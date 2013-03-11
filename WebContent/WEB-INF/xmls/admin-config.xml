@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+
+
+	<!-- ================================================ Form Bean Definitions -->
+	<form-beans>
+		<!-- ADMINISTRAÇÃO -->
+		<form-bean name="AdminBean" type="com.mackstore.admin.cad_admin.Admin" />
+		<form-bean name="AdminBean2" type="com.mackstore.admin.cad_admin.Admin" />
+		<!-- CADASTROS -->
+		<!-- AUXILIARES -->
+		<form-bean name="FotoBean" type="com.mackstore.admin.cad_foto.Foto" />
+		<!-- MISC -->
+		<form-bean name="DicaBean" type="com.mackstore.admin.cad_dica.Dica" />
+		<!-- MACKSTORE -->
+		<form-bean name="CategoriaBean" type="com.mackstore.admin.categoria.Categoria" />
+		<form-bean name="ProdutoBean" type="com.mackstore.admin.categoria.produto.Produto" />
+		<form-bean name="ClienteBean" type="com.mackstore.admin.cliente.Cliente" />
+		<form-bean name="EnderecoBean" type="com.mackstore.admin.cliente.endereco.Endereco" />
+	</form-beans>
+	<!-- ========================================= Global Exception Definitions -->
+	<global-exceptions>
+	</global-exceptions>
+	<!-- =========================================== Global Forward Definitions -->
+	<global-forwards>
+	</global-forwards>
+	<!-- =========================================== Action Mapping Definitions -->
+	<action-mappings>
+		<!-- LOGIN -->
+		<action input="/admin/" name="AdminBean2" path="/admin/psLogin"
+			scope="request" type="com.mackstore.admin.cad_admin.LoginAction">
+			<forward name="login" path="/admin/redirectAdmin.mackstore?pag=home" redirect="true" />
+			<forward name="erro" path="/admin/" />
+		</action>
+		<!-- ADMIN TILES -->
+		<action path="/admin/redirectAdmin" parameter="pag"
+			type="com.mackstore.admin.tiles.TilesAction" scope="request">
+			<forward name="login" path="login" />
+			<forward name="home" path="home_admin" />
+			<forward name="quemSomos" path="quem_somos" />
+			<forward name="admin" path="lst_admin" />
+			<forward name="cadAdmin" path="cad_admin" />
+			<forward name="foto" path="lst_foto" />
+			<forward name="cadFoto" path="cad_foto"/>
+			<forward name="dica" path="lst_dica" />
+			<forward name="cadDica" path="cad_dica"/>
+			<forward name="logout" path="/admin/"/>
+			<!-- MACKSTORE -->
+			<forward name="endereco" path="lst_endereco" />
+			<forward name="cadEndereco" path="cad_endereco"/>
+			<forward name="cliente" path="lst_cliente" />
+			<forward name="cadCliente" path="cad_cliente"/>
+			<forward name="categoria" path="lst_categoria" />
+			<forward name="cadCategoria" path="cad_categoria"/>
+			<forward name="produto" path="lst_produto" />
+			<forward name="cadProduto" path="cad_produto"/>
+		</action>
+		<!-- HOME -->
+		<!-- CADASTRO ADMIN -->
+		<action input="cad_admin" name="AdminBean" path="/admin/psAdmin"
+			scope="request" type="com.mackstore.admin.cad_admin.AdminAction">
+			<forward name="listar" path="lst_admin" redirect="true" />
+		</action>
+		<!-- CADASTRO FOTO -->
+		<action input="cad_foto" name="FotoBean" path="/admin/psFoto"
+			scope="request" type="com.mackstore.admin.cad_foto.FotoAction">
+			<forward name="listar" path="lst_foto" redirect="true" />
+		</action>
+		<!-- CADASTRO DICA -->
+		<action input="cad_dica" name="DicaBean" path="/admin/psDica"
+			scope="request" type="com.mackstore.admin.cad_dica.DicaAction">
+			<forward name="listar" path="lst_dica" redirect="true" />
+		</action>
+		<!-- MACKSTORE -->
+		<!-- CADASTRO ENDERECO -->
+		<action input="cad_endereco" name="EnderecoBean" path="/admin/psEndereco"
+			scope="request" type="com.mackstore.admin.cliente.endereco.EnderecoAction">
+			<forward name="listar" path="/admin/redirectAdmin.mackstore?pag=endereco" redirect="true" />
+		</action>
+		<!-- CADASTRO CLIENTE -->
+		<action input="cad_cliente" name="ClienteBean" path="/admin/psCliente"
+			scope="request" type="com.mackstore.admin.cliente.ClienteAction">
+			<forward name="listar" path="/admin/redirectAdmin.mackstore?pag=cliente" redirect="true" />
+		</action>
+		<!-- CADASTRO CATEGORIA -->
+		<action input="cad_categoria" name="CategoriaBean" path="/admin/psCategoria"
+			scope="request" type="com.mackstore.admin.categoria.CategoriaAction">
+			<forward name="listar" path="/admin/redirectAdmin.mackstore?pag=categoria" redirect="true" />
+		</action>
+		<!-- CADASTRO PRODUTO -->
+		<action input="cad_produto" name="ProdutoBean" path="/admin/psProduto"
+			scope="request" type="com.mackstore.admin.categoria.produto.ProdutoAction">
+			<forward name="listar" path="/admin/redirectAdmin.mackstore?pag=produto" redirect="true" />
+		</action>
+	</action-mappings>
+
+	<!-- ======================================== Request Processors -->
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+	<!-- ======================================== Message Resources Definitions -->
+	<message-resources parameter="MessageResources" />
+	<!-- =============================================== Plug Ins Configuration -->
+
+	<!-- =================================================== Validator plugin -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames" 
+			value="/WEB-INF/xmls/validator-rules.xml, /WEB-INF/xmls/validation.xml"/>
+	</plug-in>
+	<!-- ======================================================= Tiles plugin -->
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/xmls/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+</struts-config>
+

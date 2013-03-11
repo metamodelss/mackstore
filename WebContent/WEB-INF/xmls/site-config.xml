@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+
+<!-- ================================================ Form Bean Definitions -->
+
+    <form-beans>
+    </form-beans>
+
+
+<!-- ========================================= Global Exception Definitions -->
+
+    <global-exceptions>
+    </global-exceptions>
+
+
+<!-- =========================================== Global Forward Definitions -->
+
+    <global-forwards>
+    </global-forwards>
+
+
+<!-- =========================================== Action Mapping Definitions -->
+
+    <action-mappings>
+		<!-- TILES -->
+		<action path="/redirect" parameter="pag"
+			type="com.mackstore.tiles.TilesAction" scope="request">
+			<forward name="home" path="home" />
+		</action>
+		<!-- NEWSLETTER -->
+		<action path="/newsletter" name="EmailBean"
+			type="com.mackstore.admin.newsletter.ActionNewsletter" scope="request">
+			<forward name="newsletter" path="/"/>
+		</action>
+		<!-- CONTATO -->
+		<action path="/psContato" input="/redirect.mackstore?pag=contato"  name="ContatoBean"
+			type="com.mackstore.admin.cad_contato.ContatoAction" scope="request" parameter="pag">
+			<forward name="enviar" path="/redirect.mackstore?pag=contato" />
+		</action>
+    </action-mappings>
+</struts-config>

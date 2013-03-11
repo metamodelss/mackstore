@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+<form-validation>
+	<!-- This is a minimal Validator form file with a couple of examples. -->
+	<global>
+		<!-- An example global constant <constant> <constant-name>postalCode</constant-name> 
+			<constant-value>^\d{5}\d*$</constant-value> </constant> end example -->
+	</global>
+
+	<formset>
+		<form name="AdminBean">
+			<field property="usuario" depends="required,mask">
+				<arg key="AdminBean.usuario" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9]*$</var-value>
+				</var>
+				<msg name="mask" key="errors.mascaraLetrasNumeros"/>
+			</field>
+			<field property="senha" depends="required,minlength">
+				<arg0 key="AdminBean.senha" />
+				<arg1 key="${var:minlength}" name="minlength" resource="false" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>6</var-value>
+				</var>
+			</field>
+			<field property="email" depends="required,email">
+				<arg key="AdminBean.email" />
+			</field>
+		</form>
+		<form name="AdminBean2">
+			<field property="usuario" depends="required">
+				<arg key="AdminBean.usuario" />
+			</field>
+			<field property="senha" depends="required">
+				<arg key="AdminBean.senha" />
+			</field>
+		</form>
+		<!-- MACKSTORE -->
+		<form name="EnderecoBean">
+			<field property="rua" depends="required">
+				<arg key="EnderecoBean.rua" />
+			</field>
+			<field property="numero" depends="required, integer">
+				<arg key="EnderecoBean.numero" />
+			</field>
+			<field property="complemento" depends="required">
+				<arg key="EnderecoBean.complemento" />
+			</field>
+		</form>
+		<form name="ClienteBean">
+			<field property="idEndereco" depends="validwhen">
+				<arg0 key="ClienteBean.idEndereco" />
+        		<var>  
+	                <var-name>test</var-name>  
+	                <var-value>(*this* != 0)</var-value>  
+    			</var>
+			</field>
+			<field property="nome" depends="required">
+				<arg key="ClienteBean.nome" />
+			</field>
+		</form>
+		<form name="CategoriaBean">
+			<field property="nome" depends="required">
+				<arg key="CategoriaBean.nome" />
+			</field>
+		</form>
+		<form name="ProdutoBean">
+			<field property="nome" depends="required">
+				<arg key="ProdutoBean.nome" />
+			</field>
+			<field property="descricao" depends="required">
+				<arg key="ProdutoBean.descricao" />
+			</field>
+			<field property="quantidade" depends="required, integer">
+				<arg key="ProdutoBean.quantidade" />
+			</field>
+			<field property="idFoto" depends="validwhen">
+				<arg0 key="ProdutoBean.idFoto" />
+        		<var>  
+	                <var-name>test</var-name>  
+	                <var-value>(*this* != 0)</var-value>  
+    			</var>
+			</field>
+			<field property="idCategoria" depends="validwhen">
+				<arg0 key="ProdutoBean.idCategoria" />
+        		<var>  
+	                <var-name>test</var-name>  
+	                <var-value>(*this* != 0)</var-value>  
+    			</var>
+			</field>
+		</form>
+	</formset>
+</form-validation>

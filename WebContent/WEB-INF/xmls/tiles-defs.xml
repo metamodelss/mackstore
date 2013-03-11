@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>
+	<!-- INICIO TILES SITE -->
+    <definition name="home" path="/site/site.jsp">
+    	<put name="titulo" value="Home" />
+    	<put name="topo" value="/site/topo.jsp" />
+    	<put name="lateral_esquerda" value="/site/lateral_esquerda.jsp" />
+    	<put name="corpo" value="/site/home.jsp" />
+    	<put name="lateral_direita" value="/site/lateral_direita.jsp" />
+    	<put name="rodape" value="/site/rodape.jsp" />
+    </definition>
+	<!-- FIM TILES SITE -->
+	<!-- INICIO TILES ADMIN -->
+	    <definition name="home_admin" path="/admin/admin.jsp">
+	    	<put name="nomeMenu" value="Home" />
+	    	<put name="topo" value="/admin/topo.jsp" />
+	    	<put name="esquerda" value="/admin/lateral_esquerda.jsp" />
+	    	<put name="corpo" value="/admin/home.jsp" />
+	    	<put name="direita" value="/admin/lateral_direita.jsp" />
+	    </definition>
+	    <!-- LOGAR -->
+	    <definition name="login" extends="home_admin">
+	    	<put name="nomeMenu" value="Login" />
+	    	<put name="corpo" value="/admin/login.jsp" />
+	    </definition>
+	    <!-- CADASTRO ADMIN -->
+	    <definition name="lst_admin" extends="home_admin">
+	    	<put name="nomeMenu" value="Admin" />
+	    	<put name="corpo" value="/admin/lst_admin.jsp" />
+	    </definition>
+	    <definition name="cad_admin" extends="home_admin">
+	    	<put name="nomeMenu" value="Admin" />
+	    	<put name="corpo" value="/admin/cad_admin.jsp" />
+	    </definition>
+		<!-- CADASTRO FOTO -->
+	    <definition name="lst_foto" extends="home_admin">
+	    	<put name="nomeMenu" value="Foto" />
+	    	<put name="corpo" value="/admin/lst_foto.jsp" />
+	    </definition>
+	    <definition name="cad_foto" extends="home_admin">
+	    	<put name="nomeMenu" value="Foto" />
+	    	<put name="corpo" value="/admin/cad_foto.jsp" />
+	    </definition>
+		<!-- CADASTRO DICA -->
+	    <definition name="lst_dica" extends="home_admin">
+	    	<put name="nomeMenu" value="Pacote" />
+	    	<put name="corpo" value="/admin/lst_dica.jsp" />
+	    </definition>
+	    <definition name="cad_dica" extends="home_admin">
+	    	<put name="nomeMenu" value="Pacote" />
+	    	<put name="corpo" value="/admin/cad_dica.jsp" />
+	    </definition>
+		<!-- MACKSTORE -->
+			<!-- CADASTRO ENDERECO -->
+		    <definition name="lst_endereco" extends="home_admin">
+		    	<put name="nomeMenu" value="Endereço" />
+		    	<put name="corpo" value="/admin/lst_endereco.jsp" />
+		    </definition>
+		    <definition name="cad_endereco" extends="home_admin">
+		    	<put name="nomeMenu" value="Endereço" />
+		    	<put name="corpo" value="/admin/cad_endereco.jsp" />
+		    </definition>
+			<!-- CADASTRO CLIENTE -->
+		    <definition name="lst_cliente" extends="home_admin">
+		    	<put name="nomeMenu" value="Cliente" />
+		    	<put name="corpo" value="/admin/lst_cliente.jsp" />
+		    </definition>
+		    <definition name="cad_cliente" extends="home_admin">
+		    	<put name="nomeMenu" value="Cliente" />
+		    	<put name="corpo" value="/admin/cad_cliente.jsp" />
+		    </definition>
+			<!-- CADASTRO CATEGORIA -->
+		    <definition name="lst_categoria" extends="home_admin">
+		    	<put name="nomeMenu" value="Categoria" />
+		    	<put name="corpo" value="/admin/lst_categoria.jsp" />
+		    </definition>
+		    <definition name="cad_categoria" extends="home_admin">
+		    	<put name="nomeMenu" value="Categoria" />
+		    	<put name="corpo" value="/admin/cad_categoria.jsp" />
+		    </definition>
+			<!-- CADASTRO PRODUTO -->
+		    <definition name="lst_produto" extends="home_admin">
+		    	<put name="nomeMenu" value="Produto" />
+		    	<put name="corpo" value="/admin/lst_produto.jsp" />
+		    </definition>
+		    <definition name="cad_produto" extends="home_admin">
+		    	<put name="nomeMenu" value="Produto" />
+		    	<put name="corpo" value="/admin/cad_produto.jsp" />
+		    </definition>
+		    <!-- 
+		    -->
+		<!-- FIM MACKSTORE -->
+	<!-- FIM TILES ADMIN -->
+</tiles-definitions>

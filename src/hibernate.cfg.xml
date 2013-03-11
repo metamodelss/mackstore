@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>         
+        <property name="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
+        <property name="hibernate.connection.url">jdbc:hsqldb:hsql://localhost/mackstore</property>
+        <property name="hibernate.connection.username">sa</property>
+
+
+        <property name="show_sql">true</property>
+        <property name="hbm2ddl.auto">update</property>
+        
+        <!-- configuration pool via c3p0-->
+        <!-- 
+         --> 
+		<property name="hibernate.c3p0.acquire_increment">10</property>  
+		<property name="hibernate.c3p0.timeout">1800</property>  
+		<property name="hibernate.c3p0.idle_test_period">60</property>  
+		<property name="hibernate.c3p0.max_size">100</property>  
+		<property name="hibernate.c3p0.max_statements">50</property>  
+		<property name="hibernate.c3p0.min_size">5</property>
+
+        <!-- Operações Hibernate com Annotations -->
+        <mapping class="com.mackstore.admin.cad_admin.Admin" />
+        <mapping class="com.mackstore.admin.cad_foto.Foto" />
+        <mapping class="com.mackstore.admin.cad_dica.Dica" />
+        <!-- MACKSTORE -->
+        <mapping class="com.mackstore.admin.cliente.Cliente" />
+        <mapping class="com.mackstore.admin.cliente.endereco.Endereco" />
+        <mapping class="com.mackstore.admin.categoria.Categoria" />
+        <mapping class="com.mackstore.admin.categoria.produto.Produto" />
+    </session-factory>
+</hibernate-configuration>
