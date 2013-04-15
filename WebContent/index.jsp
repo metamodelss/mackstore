@@ -2,7 +2,7 @@
 <%@page pageEncoding="UTF-8"%>
 <%@taglib uri="/WEB-INF/struts-tiles.tld" prefix="tiles" %>
 <%@taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
-<logic:notPresent name="menuAtual">
+<logic:notPresent name="listagem">
 	<jsp:forward page="/redirect.mackstore?pag=home"/>
 </logic:notPresent>
 <tiles:insert page="/site/site.jsp" flush="true">

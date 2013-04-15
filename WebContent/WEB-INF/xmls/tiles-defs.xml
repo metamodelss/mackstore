@@ -10,8 +10,11 @@
     	<put name="topo" value="/site/topo.jsp" />
     	<put name="lateral_esquerda" value="/site/lateral_esquerda.jsp" />
     	<put name="corpo" value="/site/home.jsp" />
-    	<put name="lateral_direita" value="/site/lateral_direita.jsp" />
     	<put name="rodape" value="/site/rodape.jsp" />
+    </definition>
+    <definition name="categoria" extends="home">
+    	<put name="nomeMenu" value="Categoria" />
+    	<put name="corpo" value="/site/categoria.jsp" />
     </definition>
 	<!-- FIM TILES SITE -->
 	<!-- INICIO TILES ADMIN -->
